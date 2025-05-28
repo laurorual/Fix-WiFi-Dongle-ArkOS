@@ -7,6 +7,8 @@ The problem tho, is that you must connect a keyboard on your device and type thi
 
 By using this script, you can fix your dongle on your device by just copying a single file to your SD and running it!
 
+Thanks for the user mr.yoritoshi for testing the script and seeing if it works!
+
 # INSTRUCTIONS
 
 1. Download the "setup_usb_modeswitch.sh" from the releases tab, and copy it to the "tools" folder of your microSD card.
