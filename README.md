@@ -7,7 +7,9 @@ The problem tho, is that you must connect a keyboard on your device and type thi
 
 By using this script, you can fix your dongle on your device by just copying a single file to your SD and running it!
 
-Thanks for the user mr.yoritoshi for testing the script and seeing if it works!
+Thanks for the user mr.yoritoshi and lots of others from Discord for testing the script and seeing if it works!
+
+### The new version of ArkOS, called dArkOS, doesn't need this script anymore, as it uses a new version of Linux that can detect this dongle without issues!
 
 # INSTRUCTIONS
 
