@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# 0. Get the absolute path of the directory where this script is located
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 # 1. Log Configuration
-# Generates a unique log file name based on current date and time
-LOG_FILE="log_$(date +'%Y%m%d_%H%M%S').txt"
+# Uses the absolute SCRIPT_DIR to ensure the log is created in the right place
+LOG_FILE="$SCRIPT_DIR/log_$(date +'%Y%m%d_%H%M%S').txt"
 
 # Function to log messages to both the terminal and the text file
 log_message() {
@@ -13,7 +16,7 @@ log_message() {
 
 # Start of the script
 log_message "Starting Wifi Dongle configuration..."
-sleep 3
+sleep 2
 
 # --- STEP 1: Create usb_modeswitch configuration file ---
 TARGET_CONFIG="/usr/share/usb_modeswitch/0bda:1a2b"
@@ -23,6 +26,7 @@ if [ -f "$TARGET_CONFIG" ]; then
 else
     log_message "Step 1: Creating usb_modeswitch configuration file..."
     
+    # Using sudo tee ensures we have permission to write to /usr/share/
     echo "# AC600 Wifi Dongle
 TargetVendor=0x0bda
 TargetProduct=0x1a2b
@@ -77,7 +81,7 @@ sleep 3
 # --- FINAL SUMMARY ---
 echo "--------------------------------------------------"
 log_message "PROCESS COMPLETED!"
-log_message "Log file saved as: $(pwd)/$LOG_FILE"
+log_message "Log file saved at: $LOG_FILE"
 log_message "You may need to restart your device for changes to take effect."
 echo "--------------------------------------------------"
 
